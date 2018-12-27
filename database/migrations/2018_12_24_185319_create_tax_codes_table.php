@@ -14,7 +14,11 @@ class CreateTaxCodesTable extends Migration
     public function up()
     {
         Schema::create('tax_codes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('tax_code',32);
+            $table->string('tax_code_name');
+            $table->tinyInteger('tax_code_type');
+            $table->string('city',255);
+            $table->string('state');
             $table->timestamps();
         });
     }

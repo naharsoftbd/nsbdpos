@@ -14,7 +14,10 @@ class CreateSalesPaymentsTable extends Migration
     public function up()
     {
         Schema::create('sales_payments', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('sale_id')->unsigned();
+            $table->string('payment_type',40);
+            $table->decimal('payment_amount',15,2);
+            $table->foreign('sale_id')->references('id')->on('sales')->onDelete('cascade');
             $table->timestamps();
         });
     }

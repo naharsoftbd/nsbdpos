@@ -14,7 +14,10 @@ class CreateCustomersPackagesTable extends Migration
     public function up()
     {
         Schema::create('customers_packages', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('package_id');
+            $table->string('package_name',255);
+            $table->float('points_percent');
+            $table->integer('deleted');
             $table->timestamps();
         });
     }

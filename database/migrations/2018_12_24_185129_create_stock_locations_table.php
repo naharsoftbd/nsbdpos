@@ -15,6 +15,8 @@ class CreateStockLocationsTable extends Migration
     {
         Schema::create('stock_locations', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('location_name',255);
+            $table->integer('deleted');
             $table->timestamps();
         });
     }

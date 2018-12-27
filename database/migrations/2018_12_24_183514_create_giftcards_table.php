@@ -15,6 +15,10 @@ class CreateGiftcardsTable extends Migration
     {
         Schema::create('giftcards', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('giftcard_number',255);
+            $table->decimal('value',15,2);
+            $table->integer('deleted');
+            $table->integer('people_id');
             $table->timestamps();
         });
     }

@@ -14,7 +14,11 @@ class CreateAttributeLinksTable extends Migration
     public function up()
     {
         Schema::create('attribute_links', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('attribute_id');
+            $table->integer('definition_id');
+            $table->integer('item_id');
+            $table->integer('sale_id');
+            $table->integer('receiving_id');
             $table->timestamps();
         });
     }

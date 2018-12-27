@@ -14,7 +14,11 @@ class CreatePermissionsTable extends Migration
     public function up()
     {
         Schema::create('permissions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('permission_id');
+            $table->integer('module_id')->unsigned();
+            $table->integer('location_id')->unsigned();
+            $table->foreign('module_id')->references('id')->on('modules')->onDelete('cascade');
+            //$table->foreign('location_id')->references('id')->on('stock_locations')->onDelete('cascade');
             $table->timestamps();
         });
     }

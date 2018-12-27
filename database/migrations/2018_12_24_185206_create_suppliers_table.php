@@ -14,7 +14,13 @@ class CreateSuppliersTable extends Migration
     public function up()
     {
         Schema::create('suppliers', function (Blueprint $table) {
-            $table->increments('id');
+            $table->integer('people_id')->unsigned();
+            $table->string('company_name',255);
+            $table->string('agency_name',255);
+            $table->string('account_number')->index();
+            $table->integer('deleted');
+            $table->integer('category');
+            $table->foreign('people_id')->references('id')->on('peoples')->onDelete('cascade');
             $table->timestamps();
         });
     }

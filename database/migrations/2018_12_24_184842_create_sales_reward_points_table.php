@@ -15,6 +15,10 @@ class CreateSalesRewardPointsTable extends Migration
     {
         Schema::create('sales_reward_points', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('sale_id')->unsigned();
+            $table->float('earned');
+            $table->float('used');
+            $table->foreign('sale_id')->references('id')->on('sales')->onDelete('cascade');
             $table->timestamps();
         });
     }

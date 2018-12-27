@@ -15,6 +15,9 @@ class CreateModulesTable extends Migration
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('sort');
+            $table->string('desc_lang_key');
+            $table->string('name_lang_key');
             $table->timestamps();
         });
     }

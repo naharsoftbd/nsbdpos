@@ -15,6 +15,8 @@ class CreateSessionsTable extends Migration
     {
         Schema::create('sessions', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('ip_address',45);
+            $table->binary('data');
             $table->timestamps();
         });
     }

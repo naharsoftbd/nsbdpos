@@ -14,7 +14,10 @@ class CreateTaxCodeRatesTable extends Migration
     public function up()
     {
         Schema::create('tax_code_rates', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('rate_tax_code',32)->primary();
+            $table->integer('rate_tax_category_id');
+            $table->decimal('tax_rate',15,4);
+            $table->tinyInteger('rounding_code');
             $table->timestamps();
         });
     }

@@ -14,7 +14,10 @@ class CreateDinnerTablesTable extends Migration
     public function up()
     {
         Schema::create('dinner_tables', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('dinner_table_id');
+            $table->string('name');
+            $table->tinyInteger('status');
+            $table->integer('deleted');
             $table->timestamps();
         });
     }

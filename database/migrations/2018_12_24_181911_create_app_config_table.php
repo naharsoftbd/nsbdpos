@@ -15,6 +15,8 @@ class CreateAppConfigTable extends Migration
     {
         Schema::create('app_config', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('key');
+            $table->string('value',500);
             $table->timestamps();
         });
     }

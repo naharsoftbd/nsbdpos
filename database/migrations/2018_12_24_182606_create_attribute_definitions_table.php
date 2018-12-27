@@ -15,6 +15,12 @@ class CreateAttributeDefinitionsTable extends Migration
     {
         Schema::create('attribute_definitions', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('definition_name',255);
+            $table->string('definition_type',45);
+            $table->tinyInteger('definition_flags');
+            $table->integer('definition_fk');
+            $table->tinyInteger('deleted');
+            $table->index('deleted');
             $table->timestamps();
         });
     }

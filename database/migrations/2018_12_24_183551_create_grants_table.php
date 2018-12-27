@@ -14,7 +14,9 @@ class CreateGrantsTable extends Migration
     public function up()
     {
         Schema::create('grants', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('permission_id');
+            $table->integer('people_id')->index();
+            $table->string('menu_group',32);
             $table->timestamps();
         });
     }

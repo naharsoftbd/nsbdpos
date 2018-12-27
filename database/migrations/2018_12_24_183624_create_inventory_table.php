@@ -14,7 +14,13 @@ class CreateInventoryTable extends Migration
     public function up()
     {
         Schema::create('inventory', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('trans_id');
+            $table->integer('trans_items')->index();
+            $table->integer('trans_user')->index();
+            $table->dateTime('trans_date');
+            $table->text('trans_comment');
+            $table->integer('trans_location');
+            $table->decimal('trans_inventory',15,2);
             $table->timestamps();
         });
     }

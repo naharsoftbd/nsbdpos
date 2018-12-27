@@ -15,6 +15,12 @@ class CreateReceivingsTable extends Migration
     {
         Schema::create('receivings', function (Blueprint $table) {
             $table->increments('id');
+            $table->dateTime('receiving_time');
+            $table->integer('supplier_id')->unsigned();
+            $table->integer('employee_id')->unsigned();
+            $table->text('comment');
+            $table->string('payment_type',20);
+            $table->string('reference',32)->index();
             $table->timestamps();
         });
     }

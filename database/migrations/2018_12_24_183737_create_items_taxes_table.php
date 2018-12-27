@@ -14,7 +14,9 @@ class CreateItemsTaxesTable extends Migration
     public function up()
     {
         Schema::create('items_taxes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('item_id');
+            $table->string('name');
+            $table->decimal('percent',15,2);
             $table->timestamps();
         });
     }

@@ -14,7 +14,14 @@ class CreateItemKitsTable extends Migration
     public function up()
     {
         Schema::create('item_kits', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('item_kit_id');
+            $table->string('name',255);
+            $table->integer('item_id');
+            $table->decimal('kit_discount',15,2);
+            $table->tinyInteger('kit_discount_type');
+            $table->tinyInteger('price_option');
+            $table->tinyInteger('print_option');
+            $table->string('description',255);
             $table->timestamps();
         });
     }

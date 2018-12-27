@@ -14,7 +14,9 @@ class CreateTaxCategoriesTable extends Migration
     public function up()
     {
         Schema::create('tax_categories', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('tax_category_id');
+            $table->string('tax_category',32);
+            $table->tinyInteger('tax_group_sequence');
             $table->timestamps();
         });
     }
