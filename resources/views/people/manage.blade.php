@@ -4,12 +4,12 @@
 @section('content')
 <div class="container">
 	<div id="title_bar" class="btn-toolbar">
-	<button class='btn btn-info btn-sm pull-right modal-dlg' data-btn-submit='<?php echo __('common.common_submit') ?>' data-href=''
+	<button class='btn btn-info btn-sm float-right modal-dlg' data-btn-submit='<?php echo __('common.common_submit') ?>' data-href=''
 				title='<?php __('customer.customers_import_items_excel'); ?>'>
-			<span class="glyphicon glyphicon-import">&nbsp</span><?php __('common.common_import_excel'); ?>
+			<span class="glyphicon glyphicon-import">&nbsp</span><?php echo __('common.common_import_excel'); ?>
 		</button>
 	
-	<button class='btn btn-info btn-sm pull-right modal-dlg' data-btn-submit='<?php echo __('common.common_submit') ?>' data-href=''
+	<button class='btn btn-info btn-sm float-right modal-dlg' data-btn-submit='<?php echo __('common.common_submit') ?>' data-href=''
 			title=''>
 		<span class="glyphicon glyphicon-user">&nbsp</span>
 	</button>
@@ -17,15 +17,16 @@
 
 <div id="toolbar">
 	<div class="pull-left btn-toolbar">
-		<button id="delete" class="btn btn-default btn-sm">
+		<button id="delete" class="btn btn-default btn-sm btn-md btn-lg">
 			<span class="glyphicon glyphicon-trash">&nbsp</span><?php echo __("common.common_delete");?>
 		</button>
-		<button id="email" class="btn btn-default btn-sm">
+		<button id="email" class="btn btn-default btn-sm btn-md btn-lg">
 			<span class="glyphicon glyphicon-envelope">&nbsp</span><?php echo __("common.common_email");?>
 		</button>
 	</div>
 </div>
 <div id="table_holder">
+	<?php //var_dump($table_headers->email); ?>
 	<table id="table_id" class="display">
     <thead>
         <tr>
@@ -34,10 +35,12 @@
         </tr>
     </thead>
     <tbody>
+    	@foreach($table_headers as $user)
         <tr>
-            <td>Row 1 Data 1</td>
+            <td>{{$user->email}}</td>
             <td>Row 1 Data 2</td>
         </tr>
+        @endforeach
         <tr>
             <td>Row 2 Data 1</td>
             <td>Row 2 Data 2</td>

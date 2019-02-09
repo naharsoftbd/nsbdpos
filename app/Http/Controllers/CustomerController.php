@@ -3,11 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Customer;
-use People;
+use App\User;
+use Auth;
 
 class CustomerController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +24,22 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $data['table_headers'] = 'Test';
+        $data['table_headers'] = User::All();
         return view('people.manage', $data);
+    }
+
+    /** 
+    * Customer Profile Page
+    */
+    public function getProfile(){
+        $user = User::find(Auth::user()->id)->get()->first();
+        return view('people.user-basic-info',['persons_info'=>$user]);
+    }
+
+    /* Edit Customer Information */
+    public function getCustomerInfo($id){
+         $customer = User::find(Auth::user()->id)->get()->first();
+         return view('people.edit',['customer'=>$customer]);
     }
 
     /**

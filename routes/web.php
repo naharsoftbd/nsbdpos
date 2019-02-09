@@ -16,5 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/customer', 'CustomerController@index')->name('customer');
+Route::get('/profile', 'CustomerController@getProfile')->name('profile');
+Route::post('/get-user/{id}','CustomerController@getCustomerInfo');
